@@ -1,49 +1,73 @@
 # RPG-Palm
-`RPG-Palm Realistic Pseudo-data Generation for Palmprint Recognition` |  [Paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Shen_RPG-Palm_Realistic_Pseudo-data_Generation_for_Palmprint_Recognition_ICCV_2023_paper.pdf) | [Arxiv](https://arxiv.org/abs/2307.14016)
+`RPG-Palm Realistic Pseudo-data Generation for Palmprint Recognition` |  [Paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Shen_RPG-Palm_Realistic_Pseudo-data_Generation_for_Palmprint_Recognition_ICCV_2023_paper.pdf)
 
 Pytorch implementation for RPG-Palm .
-Our improved work __PCE-Palm__ can be found in [link](https://github.com/Ukuer/PCE-Palm)
 
 ## Example results
 <img src='imgs/rpg-results.png' width=820>  
 
 
 ## Prerequisites
-- Python 3
-- CPU or NVIDIA GPU + CUDA CuDNN
+- Python 3.10
+<!-- - CPU or NVIDIA GPU + CUDA CuDNN -->
 
 ## Getting Started ###
 
-This code borrows heavily from the [BicycleGAN](https://github.com/junyanz/BicycleGAN/tree/master) repository. You can find more details about the original code in the [BicycleGAN](https://github.com/junyanz/BicycleGAN) repository.
+<!-- This code borrows heavily from the [BicycleGAN](https://github.com/junyanz/BicycleGAN/tree/master) repository. You can find more details about the original code in the [BicycleGAN](https://github.com/junyanz/BicycleGAN) repository. -->
 
 ### Installation
 - Clone this repo:
 ```bash
-git clone https://github.com/Ukuer/rpg-palm.git
+git clone https://github.com/Shivam067/EE798R_paper2.git
 cd rpg-palm
 ``` 
-- Install PyTorch and dependencies from http://pytorch.org
-- Install python libraries [visdom](https://github.com/facebookresearch/visdom), [dominate](https://github.com/Knio/dominate), and [moviepy](https://github.com/Zulko/moviepy).   
+
+- I have used CUDA Toolkit 12.4 with cuDNN for CUDA 12.4, you can follow this medium article to setup cuda [link](https://medium.com/@harunijaz/a-step-by-step-guide-to-installing-cuda-with-pytorch-in-conda-on-windows-verifying-via-console-9ba4cd5ccbef)
+
+- Install PyTorch and dependencies from http://pytorch.org, or use this-
+```
+conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+```
+
+- Verify cuda availability
+```
+python -c "import torch; print(torch.cuda.is_available())"
+python -c "import torch; print(torch.version.cuda)"
+python -c "import torch; print(torch.backends.cudnn.version())"
+```
+
+
+- Install python libraries [visdom](https://github.com/facebookresearch/visdom), [dominate](https://github.com/Knio/dominate), and [moviepy](https://github.com/Zulko/moviepy) or run requirement.txt.
+
+```
+pip install -r requirements.txt
+```
+
 - **Noted that do not install vlkit from pypi**, because it is not compatible with the current version. Please install vlkit as following:
 ```bash
 pip install palm-recognition/vlkit-0.1.0b11.tar.gz 
 ```
 
 ### Use a Pre-trained Model
-- Download [checkpoints](https://drive.google.com/file/d/1P-Z2lem3lRCu99oEReJhzYwBP6dzCuMn/view?usp=drive_link) and place it in `./checkpoints `.
+- Download [checkpoints](https://drive.google.com/file/d/1Za7ZBfjAKkFe5j0HRD9C36nOnp550dlx/view?usp=sharing) (maybe you have to request it first) and place it in `./checkpoints `.
 
 - Then `bash ./run_rpg.sh`
-- Noted that you should modify some contents in `./run_rpg.sh` to meet you requirements.
 
-### Model Training
+- While running this command, if any labrary is missing, please install it through `pip install`
+
+- I am runing the pretrained model, because to train this model, It requires 13 different palm-print datasets, some of them are not even available.
+- This script file also run the test.py file, which at the end produces two folders- bezier_rpg which contains the results, and datasets which contains the initial bezier creases.
+<!-- - Noted that you should modify some contents in `./run_rpg.sh` to meet you requirements. -->
+
+<!-- ### Model Training
 - To train a model,
 ```bash
 bash train.sh
 ```
-- To view training results and loss plots, run `python -m visdom.server` and click the URL http://localhost:8097. To see more intermediate results, check out  `./checkpoints/NAME/web/index.html`
+- To view training results and loss plots, run `python -m visdom.server` and click the URL http://localhost:8097. To see more intermediate results, check out  `./checkpoints/NAME/web/index.html` -->
 
 
-### Citation
+<!-- ### Citation
 
 If you find this useful for your research, please use the following.
 
@@ -62,4 +86,4 @@ I would be more than happy to assist you in any way I can.
 
 ### Acknowledgements
 
-This code borrows heavily from the [BicycleGAN](https://github.com/junyanz/BicycleGAN/tree/master) repository.
+This code borrows heavily from the [BicycleGAN](https://github.com/junyanz/BicycleGAN/tree/master) repository. -->

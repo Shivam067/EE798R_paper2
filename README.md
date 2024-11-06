@@ -18,12 +18,14 @@ Pytorch implementation for RPG-Palm .
 ### Installation
 - Clone this repo:
 ```bash
-git clone https://github.com/Shivam067/EE798R_paper2.git
-cd rpg-palm
+git clone https://github.com/Shivam067/IPR_210980_Part2.git
+cd IPR_210980_Part2
 ``` 
 
 - I have used CUDA Toolkit 12.4 with cuDNN for CUDA 12.4, you can follow this medium article to setup cuda [link](https://medium.com/@harunijaz/a-step-by-step-guide-to-installing-cuda-with-pytorch-in-conda-on-windows-verifying-via-console-9ba4cd5ccbef)
 
+- To download CUDA 12.4, click [Here](https://developer.nvidia.com/cuda-12-4-0-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local)
+- To download cuDNN for the above CUDA, In the [Link](https://developer.nvidia.com/rdp/cudnn-archive), select `Download cuDNN v8.9.7   (December 5th, 2023), for CUDA 12.x` and download accordingly. Now you have to replace some files from this cuDNN into your CUDA path as told in the above medium article link, Follow it.
 - Install PyTorch and dependencies from http://pytorch.org, or use this-
 ```
 conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
